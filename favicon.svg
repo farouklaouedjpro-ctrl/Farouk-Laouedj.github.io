@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="g" x1="12" y1="6" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C5CFF" />
+      <stop offset="1" stop-color="#14B8A6" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="44" height="44" rx="14" fill="url(#g)" />
+  <!-- Monogramme FL -->
+  <g fill="white" opacity="0.96">
+    <!-- F -->
+    <rect x="20" y="22" width="4" height="20" rx="1" />
+    <rect x="22" y="22" width="8" height="3.5" rx="1.5" />
+    <rect x="22" y="30" width="7" height="3.5" rx="1.5" />
+    <!-- L -->
+    <rect x="36" y="22" width="4" height="20" rx="1" />
+    <rect x="36" y="39" width="9" height="3.5" rx="1.5" />
+  </g>
+</svg>
