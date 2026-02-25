@@ -39,7 +39,7 @@ skills: [
   ],
 
   social: [
-    { label: "Télécharger mon CV", href: "https://example.com/mon-cv.pdf" },
+    { label: "Télécharger mon CV", href: "source/CV LAOUEDJ Farouk Alternant Chef de projet.pdf" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/farouklaouedj/" },
   ],
 
