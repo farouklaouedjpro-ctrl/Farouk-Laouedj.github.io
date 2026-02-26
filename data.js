@@ -13,7 +13,7 @@ window.PORTFOLIO_DATA = {
     availability: "Ouvert aux opportunités",
     oneLiner: "Objectif: Transformer vos processus métiers grâce à l’IA et l'automatisation pour délivrer une valeur mesurable.",
     email: "farouklaouedj.pro@gmail.com",
-    cvUrl: "source/CV LAOUEDJ Farouk Alternant Chef de projet.pdf",
+    cvUrl: "source/CV LAOUEDJ Farouk Alternant.pdf",
   },
 
 about: {
@@ -39,7 +39,7 @@ skills: [
   ],
 
   social: [
-    { label: "Télécharger mon CV", href: "source/CV LAOUEDJ Farouk Alternant Chef de projet.pdf" },
+    { label: "Télécharger mon CV", href: "source/CV LAOUEDJ Farouk Alternant.pdf" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/farouklaouedj/" },
   ],
 
