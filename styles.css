@@ -301,7 +301,7 @@ body.cursor-ready:hover .cursor-dot {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   justify-self: center;
-  margin-left: 120px;
+  margin-left: 100px;
 }
 
 .nav-center a {
