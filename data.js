@@ -102,7 +102,7 @@ skills: [
     {
       title: "Chef de Projet - Méthodes et Outils",
       issuer: "Udemy",
-      date: "2024",
+      date: "2025",
       description: "Certification en chefferie de projet, méthodes agiles et outils de gestion.",
       image: "source/UC-ccc4ffb6-9101-43ef-aba6-522177cf417b.jpg",
     },
