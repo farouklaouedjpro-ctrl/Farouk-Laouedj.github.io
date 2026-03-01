@@ -254,6 +254,53 @@
     });
   }
 
+  // ── Certifications ─────────────────────────────────────────────
+
+  function renderCertifications() {
+    var root = $("certificationsList");
+    if (!root) return;
+    root.innerHTML = "";
+
+    (data.certifications || []).forEach(function (cert) {
+      var article = document.createElement("article");
+      article.className = "certification-item reveal";
+
+      var img = document.createElement("img");
+      img.className = "certification-image";
+      img.src = cert.image || "";
+      img.alt = cert.title || "Certification";
+      img.loading = "lazy";
+
+      var header = document.createElement("div");
+      header.className = "certification-header";
+
+      var issuer = document.createElement("span");
+      issuer.className = "certification-issuer";
+      issuer.textContent = cert.issuer || "";
+      header.appendChild(issuer);
+
+      var date = document.createElement("span");
+      date.className = "certification-date";
+      date.textContent = cert.date || "";
+      header.appendChild(date);
+
+      var title = document.createElement("h3");
+      title.className = "certification-title";
+      title.textContent = cert.title || "";
+
+      var desc = document.createElement("p");
+      desc.className = "certification-desc";
+      desc.textContent = cert.description || "";
+
+      article.appendChild(img);
+      article.appendChild(header);
+      article.appendChild(title);
+      article.appendChild(desc);
+
+      root.appendChild(article);
+    });
+  }
+
   // ── About ───────────────────────────────────────────────────
 
   function renderAbout() {
@@ -532,6 +579,7 @@
   hydrateBasics();
   renderMarquee();
   renderProjects();
+  renderCertifications();
   renderAbout();
   renderSocial();
   setupMobileNav();

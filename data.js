@@ -48,7 +48,7 @@ skills: [
       title: "NoCookNoClean",
       status: "MVP",
       description:
-        "Ce projet simule le rachat de l'enseigne Del Arte (90 restaurants, leader de la restauration italienne) par le groupe en forte expansion NoCookNoClean. L'objectif principal était de concevoir une stratégie de fusion des SI permettant d'unifier le pilotage du groupe tout en respectant les réalités opérationnelles du terrain.",
+        "Ce projet simule le rachart de l'enseigne Del Arte (90 restaurants, leader de la restauration italienne) par le groupe en forte expansion NoCookNoClean. L'objectif principal était de concevoir une stratégie de fusion des SI permettant d'unifier le pilotage du groupe tout en respectant les réalités opérationnelles du terrain.",
       stack: ["ERP (Dolibarr)", "CRM (Salesforce)", "SQL"],
       links: [
         
@@ -74,6 +74,37 @@ skills: [
         "Dashboard boursier qui affiche les données envoyées depuis Power Automate dans mes tables Supabase.",
       stack: ["IA", "API", "Perf"],
       links: [{ label: "StockBoard", href: "https://github.com/ton-profil/projet-a" },],
+    },
+  ],
+
+  certifications: [
+    {
+      title: "Fundamentals of Machine Learning and Artificial Intelligence",
+      issuer: "AWS",
+      date: "2025",
+      description: "Certification couvrant les fondamentaux du ML et de l'IA sur AWS.",
+      image: "source/Fundamentals of Machine Learning and Artificial Intelligence (Français) certif_page-0001.jpg",
+    },
+    {
+      title: "Optimizing Foundation Models on AWS",
+      issuer: "AWS",
+      date: "2025",
+      description: "Certification spécialisée dans l'optimisation des modèles de fondation sur AWS.",
+      image: "source/Optimizing Foundation Models.jpg",
+    },
+    {
+      title: "Job Roles in the Cloud",
+      issuer: "AWS",
+      date: "2025",
+      description: "Certification sur les rôles cloud et les métiers du cloud.",
+      image: "source/Certificat Job Roles in the Cloud_page-0001.jpg",
+    },
+    {
+      title: "Chef de Projet - Méthodes et Outils",
+      issuer: "Udemy",
+      date: "2024",
+      description: "Certification en chefferie de projet, méthodes agiles et outils de gestion.",
+      image: "source/UC-ccc4ffb6-9101-43ef-aba6-522177cf417b.jpg",
     },
   ],
 };
