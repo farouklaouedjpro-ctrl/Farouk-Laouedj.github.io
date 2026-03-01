@@ -1,19 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <defs>
-    <linearGradient id="g" x1="12" y1="6" x2="52" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7C5CFF" />
-      <stop offset="1" stop-color="#14B8A6" />
-    </linearGradient>
-  </defs>
-  <rect x="10" y="10" width="44" height="44" rx="14" fill="url(#g)" />
+  <rect width="64" height="64" rx="16" fill="#4f46e5" />
   <!-- Monogramme FL -->
-  <g fill="white" opacity="0.96">
+  <g fill="#ffffff">
     <!-- F -->
-    <rect x="20" y="22" width="4" height="20" rx="1" />
-    <rect x="22" y="22" width="8" height="3.5" rx="1.5" />
-    <rect x="22" y="30" width="7" height="3.5" rx="1.5" />
+    <rect x="18" y="20" width="4" height="24" rx="1.5" />
+    <rect x="20" y="20" width="10" height="3.5" rx="1.5" />
+    <rect x="20" y="29.5" width="8" height="3.5" rx="1.5" />
     <!-- L -->
-    <rect x="36" y="22" width="4" height="20" rx="1" />
-    <rect x="36" y="39" width="9" height="3.5" rx="1.5" />
+    <rect x="36" y="20" width="4" height="24" rx="1.5" />
+    <rect x="36" y="41" width="11" height="3.5" rx="1.5" />
   </g>
 </svg>

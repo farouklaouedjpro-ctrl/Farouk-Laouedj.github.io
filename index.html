@@ -1,374 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio — projets, compétences et contact." />
-    <title>Portfolio - Farouk Laouedj</title>
-    <meta property="og:title" content="Portfolio" />
-    <meta property="og:description" content="Projets, compétences et contact." />
+    <meta name="description" content="Farouk LAOUEDJ — Chef de projet spécialisé en IA & Automatisation des Processus." />
+    <title>Farouk LAOUEDJ — Portfolio</title>
+    <meta property="og:title" content="Farouk LAOUEDJ — Portfolio" />
+    <meta property="og:description" content="Chef de projet spécialisé en IA & Automatisation des Processus." />
     <meta property="og:type" content="website" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
-
-
-    <style>
-      /* ── SVG pleine page en fixed derrière tout ── */
-      .page__bg {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-      }
-      .page__bg svg { width: 100%; height: 100%; display: block; }
-
-      /* ── Supprime les orbes colorés du hero ── */
-      .hero::before, .hero::after,
-      .hero__text::before, .hero__text::after { display: none; }
-      .hero { position: relative; overflow: visible; }
-
-      /* ── Contenu hero centré ── */
-      .hero__inner {
-        position: relative;
-        z-index: 1;
-        width: min(var(--max), calc(100% - 40px));
-        margin-inline: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-      }
-
-      /* ── À propos : layout 2 colonnes ── */
-      .about-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        align-items: start;
-      }
-      .about-notepad { width: 100%; }
-      .about-notepad svg { width: 100%; height: auto; display: block; }
-      .about-right { display: flex; flex-direction: column; gap: 16px; padding-top: 8px; }
-
-      @media (max-width: 720px) {
-        .about-layout { grid-template-columns: 1fr; }
-        .about-right { display: none; }
-      }
-    </style>
   </head>
 
   <body>
-    
-    <!-- SVG fond animé — fixed, visible sur toute la page -->
-    <div class="page__bg" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <style>
-            .track { stroke: #94a3b8; stroke-linecap: round; opacity: 0.15; }
-            .data  { stroke: #38bdf8; stroke-linecap: round; opacity: 0.6; stroke-dasharray: 40 2500; animation: flow linear infinite; }
-            .d1 { animation-duration: 6s;   stroke-width: 2;   }
-            .d2 { animation-duration: 4.5s; animation-delay: 1s;   stroke-width: 1.5; }
-            .d3 { animation-duration: 8s;   animation-delay: 2.5s; stroke-width: 3;   }
-            .d4 { animation-duration: 5s;   animation-delay: 3s;   stroke-width: 1;   }
-            .d5 { animation-duration: 7s;   animation-delay: 0.5s; stroke-width: 2.5; }
-            @keyframes flow { from { stroke-dashoffset: 2500; } to { stroke-dashoffset: 0; } }
-          </style>
-        </defs>
-        <line x1="-200" y1="800"  x2="1200" y2="-600" class="track" stroke-width="2"   />
-        <line x1="-200" y1="800"  x2="1200" y2="-600" class="data d1" />
-        <line x1="-100" y1="900"  x2="1100" y2="-300" class="track" stroke-width="1.5" />
-        <line x1="-100" y1="900"  x2="1100" y2="-300" class="data d2" />
-        <line x1="100"  y1="1000" x2="1300" y2="-200" class="track" stroke-width="3"   />
-        <line x1="100"  y1="1000" x2="1300" y2="-200" class="data d3" />
-        <line x1="-300" y1="500"  x2="900"  y2="-700" class="track" stroke-width="1"   />
-        <line x1="-300" y1="500"  x2="900"  y2="-700" class="data d4" />
-        <line x1="200"  y1="700"  x2="1200" y2="-300" class="track" stroke-width="2.5" />
-        <line x1="200"  y1="700"  x2="1200" y2="-300" class="data d5" />
-      </svg>
+    <!-- Grain texture overlay -->
+    <svg class="grain" aria-hidden="true" width="100%" height="100%">
+      <filter id="grain-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain-filter)" />
+    </svg>
+
+    <!-- Custom cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <span class="loader-text" id="loaderName">FL</span>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+      </div>
     </div>
 
-    <header class="site-header">
-      <nav class="nav container" aria-label="Navigation principale">
-        <a class="brand" href="#top" data-nav>
-          <span class="brand__dot" aria-hidden="true"></span>
-          <span class="brand__text" id="brandName">Portfolio</span>
+    <!-- Skip link -->
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav">
+        <a class="nav-logo" href="#top" data-nav aria-label="Retour en haut">
+          <span class="nav-logo-dot" aria-hidden="true"></span>
+          <span class="nav-logo-text" id="brandName">FL</span>
         </a>
-        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
-          <span class="sr-only">Ouvrir le menu</span>
-          <span class="nav__toggleLines" aria-hidden="true"></span>
-        </button>
-        <div class="nav__menu" id="navMenu">
-          <a href="#a-propos" data-nav>À propos</a>
-          <a href="#competences" data-nav>Compétences</a>
+
+        <div class="nav-center" id="navMenu">
           <a href="#projets" data-nav>Projets</a>
+          <a href="#a-propos" data-nav>À propos</a>
           <a href="#contact" data-nav>Contact</a>
-          <div class="nav__actions">
-            <button class="btn btn--ghost" id="themeToggle" type="button" aria-pressed="false" title="Basculer le thème">
-              <span class="btn__icon" aria-hidden="true">◐</span>
-              <span class="btn__text">Thème</span>
-            </button>
-            <a class="btn btn--primary" id="ctaCv" href="source/CV LAOUEDJ Farouk Alternant.pdf" target="_blank" rel="noreferrer">
-              Télécharger mon CV
-            </a>
-          </div>
         </div>
+
+        <a class="nav-cta" id="ctaEmail" href="mailto:contact@example.com">Parlons-en</a>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-line" aria-hidden="true"></span>
+          <span class="nav-toggle-line" aria-hidden="true"></span>
+        </button>
       </nav>
     </header>
 
-    <main id="contenu">
+    <!-- Main -->
+    <main id="main">
 
-      <!-- ── HERO ── -->
-      <section class="hero reveal" id="top">
-        <div class="hero__inner">
-          <div class="hero__grid">
-            <div class="hero__text">
-              <p class="kicker" id="heroKicker"></p>
-              <h1 class="hero__title">
-                <span id="heroName">Ton Nom</span>
-                <span class="hero__subtitle" id="heroRole"></span>
-              </h1>
-              <p class="hero__lead" id="heroLead"></p>
-              <div class="hero__actions">
-                <div class="hero__cta">
-                  <a class="btn btn--primary" href="#projets" data-nav>Voir mes projets</a>
-                  <a class="btn btn--ghost" id="ctaEmail" href="mailto:contact@example.com">Me contacter</a>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="hero-content">
+          <p class="hero-kicker" id="heroKicker"></p>
+          <h1 class="hero-name" id="heroNameContainer"></h1>
+          <div class="hero-bottom">
+            <div class="hero-info">
+              <p class="hero-role" id="heroRole"></p>
+              <p class="hero-lead" id="heroLead"></p>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projets" data-nav data-magnetic>
+                <span>Voir mes projets</span>
+              </a>
+              <a class="btn btn-outline" id="heroContactBtn" href="mailto:contact@example.com" data-magnetic>
+                <span>Me contacter</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="hero-scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- Skills Marquee -->
+      <div class="marquee" aria-label="Compétences">
+        <div class="marquee-track" id="marqueeTrack"></div>
+      </div>
+
+      <!-- Projects -->
+      <section class="section" id="projets">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label">( Projets sélectionnés )</span>
+            <h2 class="section-title">Travaux<br />récents</h2>
+          </div>
+          <div class="projects-list" id="projectsList"></div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="a-propos">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-left reveal">
+              <span class="section-label">( À propos )</span>
+              <h2 class="section-title about-title">Mon<br />parcours</h2>
+              <div class="about-text" id="aboutContent"></div>
+            </div>
+            <div class="about-right reveal">
+              <div class="about-card">
+                <div class="about-stat">
+                  <span class="about-stat-label">Localisation</span>
+                  <span class="about-stat-value" id="metaLocation"></span>
                 </div>
-                <ul class="links" id="socialLinks" aria-label="Liens"></ul>
+                <div class="about-stat">
+                  <span class="about-stat-label">Spécialité</span>
+                  <span class="about-stat-value" id="metaSpecialty"></span>
+                </div>
+                <div class="about-stat">
+                  <span class="about-stat-label">Disponibilité</span>
+                  <span class="about-stat-value" id="metaAvailability"></span>
+                </div>
               </div>
-            </div>
-            <div class="hero__card" aria-label="Résumé">
-              <div class="stat">
-                <div class="stat__label">Localisation</div>
-                <div class="stat__value" id="metaLocation">Paris, FR</div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Spécialité</div>
-                <div class="stat__value" id="metaSpecialty"></div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Disponibilité</div>
-                <div class="stat__value" id="metaAvailability">Ouvert aux opportunités</div>
-              </div>
-              <div class="divider" role="presentation"></div>
-              <p class="muted" id="metaOneLiner"></p>
+              <div class="about-links" id="socialLinks"></div>
             </div>
           </div>
         </div>
-
-
-
       </section>
 
-            <!-- ── PROJETS ── -->
-      <section class="section container reveal" id="projets">
-        <div class="section__head">
-          <p class="muted">Une sélection courte avec ce que j'ai livré et appris.</p>
-        </div>
-        <div class="grid" id="projectsGrid" aria-label="Projets"></div>
-      </section>
-
-      <!-- ── À PROPOS ── -->
-      <section class="section container reveal" id="a-propos">
-        <div class="section__head">
-        </div>
-        <div class="about-layout">
-
-          <!-- Bloc-note SVG — texte injecté via foreignObject -->
-          <div class="about-notepad">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-              <defs>
-                <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-                  <feDropShadow dx="10" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.1"/>
-                </filter>
-                <pattern id="lines" x="0" y="0" width="100%" height="30" patternUnits="userSpaceOnUse">
-                  <line x1="0" y1="30" x2="800" y2="30" stroke="#e5e7eb" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <!-- Fond blanc -->
-              <rect x="50" y="20" width="700" height="480" rx="15" fill="#ffffff" filter="url(#shadow)"/>
-
-              <!-- Reliure -->
-              <rect x="35" y="50"  width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="90"  width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="130" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="170" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="210" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="250" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="290" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="330" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="370" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="410" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="450" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <rect x="35" y="490" width="40" height="6" rx="3" fill="#d1d5db"/>
-              <circle cx="65" cy="53"  r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="93"  r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="133" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="173" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="213" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="253" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="293" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="333" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="373" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="413" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="453" r="4" fill="#9ca3af"/>
-              <circle cx="65" cy="493" r="4" fill="#9ca3af"/>
-              <!-- Icône coin haut droit -->
-              <g transform="translate(680, 40) scale(0.8)" stroke="#38bdf8" stroke-width="2" fill="none">
-                <rect x="5" y="5" width="30" height="30" rx="4"/>
-                <path d="M15 5V0M25 5V0M15 40v-5M25 40v-5M0 15h5M0 25h5M40 15h-5M40 25h-5"/>
-                <rect x="15" y="15" width="10" height="10" rx="1"/>
-              </g>
-              <!-- Texte injecté par script.js — strictement dans la zone d'écriture -->
-              <foreignObject x="110" y="60" width="608" height="410">
-                <h2>À propos</h2>
-                <div xmlns="http://www.w3.org/1999/xhtml" id="aboutContent" style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;font-size:19px;line-height:1.65;color:#374151;overflow:hidden;height:100%;"></div>
-              </foreignObject>
-            </svg>
+      <!-- Contact -->
+      <section class="section contact" id="contact">
+        <div class="container">
+          <div class="contact-content reveal">
+            <span class="section-label">( Contact )</span>
+            <h2 class="contact-title">Travaillons<br />ensemble</h2>
+            <p class="contact-lead" id="contactPitch">Un projet, un poste, une mission ? Écrivez-moi.</p>
+            <a class="contact-email" id="contactEmailBtn" href="mailto:contact@example.com" data-magnetic>
+              <span id="contactEmailText">contact@example.com</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </a>
+            <button class="btn btn-outline btn-sm" id="copyEmailBtn" type="button" data-magnetic>
+              <span>Copier l'email</span>
+            </button>
+            <p class="copy-status" id="copyStatus" aria-live="polite"></p>
           </div>
-          
-      <!-- ── À PROPOS ── -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
-          <defs>
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="8" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-    <style>
-      /* --- ANIMATIONS --- */
-      
-      /* 1. Le Chaos (Entrée) - Les points convergent vers le centre */
-      @keyframes converge {
-        0% { transform: translate(0, 0); opacity: 0; }
-        20% { opacity: 0.8; }
-        80% { opacity: 0.8; }
-        100% { transform: translate(300px, var(--target-y)); opacity: 0; }
-      }
-
-      /* 2. Le Processeur (Centre) - Pulsation douce */
-      @keyframes pulse {
-        0% { transform: scale(1) rotate(45deg); opacity: 0.8; }
-        50% { transform: scale(1.1) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 12px #38bdf8); }
-        100% { transform: scale(1) rotate(45deg); opacity: 0.8; }
-      }
-
-      /* L'anneau intérieur qui tourne */
-      @keyframes spin {
-        100% { transform: rotate(360deg); }
-      }
-
-      /* 3. L'Ordre (Sortie) - Lignes droites et fluides */
-      @keyframes flowOut {
-        0% { stroke-dashoffset: 100; opacity: 0; }
-        20% { opacity: 1; }
-        80% { opacity: 1; }
-        100% { stroke-dashoffset: -100; opacity: 0; }
-      }
-
-      /* --- CLASSES CSS --- */
-      .chaos-dot {
-        fill: #94a3b8; /* Gris bleuté discret */
-        animation: converge linear infinite;
-      }
-
-      .core-node {
-        fill: none;
-        stroke: #38bdf8; /* Bleu Tech */
-        stroke-width: 3;
-        transform-origin: 400px 200px;
-        animation: pulse 3s ease-in-out infinite;
-      }
-
-      .core-inner {
-        fill: none;
-        stroke: #0284c7;
-        stroke-width: 2;
-        stroke-dasharray: 10 5;
-        transform-origin: 400px 200px;
-        animation: spin 8s linear infinite;
-      }
-
-      .order-line {
-        stroke: #38bdf8;
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-dasharray: 40 100;
-        animation: flowOut 2s linear infinite;
-      }
-    </style>
-    </defs>
-
-  <g>
-    <circle cx="80" cy="100" r="4" class="chaos-dot" style="animation-duration: 2.5s; animation-delay: 0s; --target-y: 100px;" />
-    <circle cx="50" cy="140" r="3" class="chaos-dot" style="animation-duration: 3s; animation-delay: 0.5s; --target-y: 60px;" />
-    <circle cx="100" cy="180" r="5" class="chaos-dot" style="animation-duration: 2s; animation-delay: 1.2s; --target-y: 20px;" />
-    
-    <circle cx="60" cy="220" r="4" class="chaos-dot" style="animation-duration: 2.8s; animation-delay: 0.3s; --target-y: -20px;" />
-    <circle cx="90" cy="270" r="3" class="chaos-dot" style="animation-duration: 2.2s; animation-delay: 0.8s; --target-y: -70px;" />
-    <circle cx="70" cy="320" r="4" class="chaos-dot" style="animation-duration: 3.2s; animation-delay: 1.5s; --target-y: -120px;" />
-  </g>
-
-  <path d="M 370 200 L 430 200 M 400 170 L 400 230" stroke="#e2e8f0" stroke-width="1" opacity="0.5" />
-  
-  <g filter="url(#glow)">
-    <rect x="365" y="165" width="70" height="70" rx="8" class="core-node" />
-    <circle cx="400" cy="200" r="22" class="core-inner" />
-    <circle cx="400" cy="200" r="6" fill="#38bdf8" />
-  </g>
-
-  <g>
-    <line x1="450" y1="160" x2="750" y2="160" class="order-line" style="animation-duration: 1.8s; animation-delay: 0s;" />
-    <line x1="450" y1="180" x2="750" y2="180" class="order-line" style="animation-duration: 1.8s; animation-delay: 0.6s;" />
-    <line x1="450" y1="200" x2="750" y2="200" class="order-line" style="animation-duration: 1.8s; animation-delay: 0.2s; stroke-width: 4; stroke:#0284c7;" />
-    <line x1="450" y1="220" x2="750" y2="220" class="order-line" style="animation-duration: 1.8s; animation-delay: 0.9s;" />
-    <line x1="450" y1="240" x2="750" y2="240" class="order-line" style="animation-duration: 1.8s; animation-delay: 0.4s;" />
-  </g>
-
-        </svg>
-                
-      </section>
-                <!-- ── COMPÉTENCES ── -->
-      <section class="section container reveal" id="competences">
-        <div class="section__head">
-          <p class="muted">Technos et outils que j'utilise au quotidien.</p>
-        </div>
-        <div class="chips" id="skillsChips" aria-label="Compétences"></div>
-      </section>
-
-      <!-- ── CONTACT ── -->
-      <section class="section container reveal" id="contact">
-        <div class="section__head">
-          <h2>Contact</h2>
-          <p class="muted">Le plus simple: un email. Je réponds vite.</p>
-        </div>
-        <div class="contactCard">
-          <div class="contactCard__main">
-            <h3 class="contactCard__title">Travaillons ensemble</h3>
-            <p class="muted" id="contactPitch">
-              Un projet, un poste, une mission ? Dites‑moi ce dont vous avez besoin et je réponds avec des propositions concrètes.
-            </p>
-          </div>
-          <div class="contactCard__actions">
-            <a class="btn btn--primary" id="contactEmailBtn" href="mailto:contact@example.com">Envoyer un email</a>
-            <button class="btn btn--ghost" id="copyEmailBtn" type="button">Copier l'email</button>
-          </div>
-          <p class="tiny muted" id="copyStatus" aria-live="polite"></p>
         </div>
       </section>
 
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-      <div class="container footer__inner">
-        <p class="tiny muted">
-          <span id="footerName">Ton Nom</span> — <span id="footerYear"></span>
+      <div class="container footer-inner">
+        <p class="footer-copy">
+          &copy; <span id="footerYear"></span> <span id="footerName"></span>
         </p>
-        <a class="tiny link" href="#top" data-nav>Retour en haut</a>
+        <a class="footer-top" href="#top" data-nav data-magnetic>
+          <span>Retour en haut</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 12V4M4 8l4-4 4 4" />
+          </svg>
+        </a>
       </div>
     </footer>
 
