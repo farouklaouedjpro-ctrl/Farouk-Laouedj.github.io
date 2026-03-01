@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  if (window.portfolioInitialized) return;
+  window.portfolioInitialized = true;
+
   var data = window.PORTFOLIO_DATA;
   if (!data || !data.basics) {
     console.warn("PORTFOLIO_DATA missing — check data.js");
@@ -134,15 +137,17 @@
     if (b.name) document.title = b.name + " \u2014 Portfolio";
   }
 
+  var marqueeRendered = false;
+
   // ── Marquee ─────────────────────────────────────────────────
 
   function renderMarquee() {
     var track = $("marqueeTrack");
-    if (!track) return;
-    
-    // Prevent multiple renders
-    if (track.dataset.rendered === "true") return;
-    track.dataset.rendered = "true";
+    if (!track || marqueeRendered) return;
+    marqueeRendered = true;
+
+    // Clear any existing content first
+    track.innerHTML = "";
 
     var skills = data.skills || [];
     if (!skills.length) return;
@@ -156,6 +161,17 @@
       });
     }
     track.innerHTML = html;
+  }
+
+  function setupMarqueeFallback() {
+    var track = $("marqueeTrack");
+    if (!track) return;
+    
+    setInterval(function() {
+      if (getComputedStyle(track).animationPlayState === 'paused') {
+        track.style.animationPlayState = 'running';
+      }
+    }, 1000);
   }
 
   // ── Projects ────────────────────────────────────────────────
@@ -587,6 +603,7 @@
   renderAbout();
   renderSocial();
   setupMobileNav();
+  setupMarqueeFallback();
   setupCopyEmail();
 
   // Wait for DOM paint before setting up scroll-dependent features

@@ -618,6 +618,7 @@ button:focus-visible {
   display: inline-flex;
   animation: marquee 50s linear infinite;
   will-change: transform;
+  transform: translateZ(0);
 }
 
 .marquee-item {
