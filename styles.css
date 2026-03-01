@@ -501,8 +501,9 @@ button:focus-visible {
 
 .hero-name .line {
   display: block;
-  overflow: hidden;
+  overflow: visible;
   padding-bottom: 0.08em;
+  word-break: break-word;
 }
 
 .hero-name .line-inner {
@@ -1301,6 +1302,14 @@ button:focus-visible {
   /* Hero */
   .hero {
     padding-bottom: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: visible;
+  }
+
+  .hero-content {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .hero-actions {
@@ -1361,7 +1370,12 @@ button:focus-visible {
 
   /* Contact */
   .contact {
-    padding: 80px 0;
+    padding: 80px 16px;
+  }
+
+  .contact-content {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .contact-email {
@@ -1371,7 +1385,10 @@ button:focus-visible {
 
 @media (max-width: 480px) {
   .hero-name {
-    font-size: clamp(38px, 13vw, 72px);
+    font-size: clamp(32px, 13vw, 72px);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: visible;
   }
 
   .project-title {
@@ -1379,7 +1396,9 @@ button:focus-visible {
   }
 
   .contact-title {
-    font-size: clamp(36px, 12vw, 72px);
+    font-size: clamp(28px, 10vw, 48px);
+    text-align: center;
+    width: 100%;
   }
 
   .footer-inner {
