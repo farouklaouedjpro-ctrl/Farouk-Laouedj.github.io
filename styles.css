@@ -301,6 +301,7 @@ body.cursor-ready:hover .cursor-dot {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   justify-self: center;
+  margin-left: 120px;
 }
 
 .nav-center a {
@@ -1065,7 +1066,7 @@ button:focus-visible {
 .contact-title {
   font-family: var(--font-display);
   font-size: clamp(44px, 9vw, 110px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 0.95;
   letter-spacing: -0.05em;
   margin-bottom: 28px;
