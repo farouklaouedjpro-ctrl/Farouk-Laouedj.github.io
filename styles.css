@@ -853,7 +853,7 @@ button:focus-visible {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 20px;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
   cursor: pointer;
   overflow: hidden;
@@ -1231,6 +1231,14 @@ button:focus-visible {
     align-items: flex-start;
     gap: 32px;
   }
+
+  .certifications-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 80px 0;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1246,6 +1254,11 @@ button:focus-visible {
   }
 
   /* Nav mobile */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .nav-center {
     position: fixed;
     inset: 0;
@@ -1301,6 +1314,10 @@ button:focus-visible {
     justify-content: center;
   }
 
+  .hero-info {
+    max-width: 100%;
+  }
+
   .hero-scroll {
     display: none;
   }
@@ -1322,6 +1339,24 @@ button:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  /* Certifications */
+  .certifications-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .certification-item {
+    padding: 16px;
+  }
+
+  .certification-image {
+    height: 140px;
+  }
+
+  .certification-title {
+    font-size: 16px;
   }
 
   /* Contact */
@@ -1351,6 +1386,11 @@ button:focus-visible {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding: 24px 0;
+  }
+
+  .footer-top {
+    margin-top: 8px;
   }
 }
 
