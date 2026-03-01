@@ -698,10 +698,18 @@ button:focus-visible {
   transform-origin: bottom;
   transition: transform 0.5s var(--ease);
   border-radius: 2px;
+  z-index: 1;
 }
 
 .project-item:hover {
   background: var(--surface);
+}
+
+.project-item:hover .project-top,
+.project-item:hover .project-title,
+.project-item:hover .project-desc,
+.project-item:hover .project-footer {
+  padding-left: 12px;
 }
 
 .project-item:hover::before {
@@ -715,6 +723,7 @@ button:focus-visible {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 16px;
+  transition: padding-left 0.4s var(--ease);
 }
 
 .project-index {
@@ -748,7 +757,7 @@ button:focus-visible {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 14px;
-  transition: color 0.4s;
+  transition: color 0.4s, padding-left 0.4s var(--ease);
 }
 
 .project-item:hover .project-title {
@@ -761,6 +770,7 @@ button:focus-visible {
   color: var(--text-muted);
   max-width: 72ch;
   margin-bottom: 24px;
+  transition: padding-left 0.4s var(--ease);
 }
 
 .project-footer {
@@ -769,6 +779,7 @@ button:focus-visible {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+  transition: padding-left 0.4s var(--ease);
 }
 
 .project-tags {
