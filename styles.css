@@ -611,11 +611,13 @@ button:focus-visible {
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   white-space: nowrap;
+  position: relative;
 }
 
 .marquee-track {
   display: inline-flex;
   animation: marquee 50s linear infinite;
+  will-change: transform;
 }
 
 .marquee-item {

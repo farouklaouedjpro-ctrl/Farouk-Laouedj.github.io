@@ -139,6 +139,10 @@
   function renderMarquee() {
     var track = $("marqueeTrack");
     if (!track) return;
+    
+    // Prevent multiple renders
+    if (track.dataset.rendered === "true") return;
+    track.dataset.rendered = "true";
 
     var skills = data.skills || [];
     if (!skills.length) return;
