@@ -137,41 +137,48 @@
     if (b.name) document.title = b.name + " \u2014 Portfolio";
   }
 
-  var marqueeRendered = false;
-
   // ── Marquee ─────────────────────────────────────────────────
 
   function renderMarquee() {
-    var track = $("marqueeTrack");
-    if (!track || marqueeRendered) return;
-    marqueeRendered = true;
+    var marquee = document.querySelector('.marquee');
+    if (!marquee) return;
+    
+    marquee.innerHTML = '';
 
-    // Clear any existing content first
-    track.innerHTML = "";
+    var wrapper = document.createElement('div');
+    wrapper.className = 'marquee-wrapper';
+
+    var track = document.createElement('div');
+    track.className = 'marquee-track';
 
     var skills = data.skills || [];
     if (!skills.length) return;
 
-    var html = "";
-    // Duplicate content twice for seamless infinite scroll
+    var content = '';
     for (var loop = 0; loop < 2; loop++) {
       skills.forEach(function (skill) {
-        html +=
-          '<span class="marquee-item">' + escapeHtml(skill) + "</span>";
+        content += '<span class="marquee-item">' + escapeHtml(skill) + '</span>';
       });
     }
-    track.innerHTML = html;
-  }
+    track.innerHTML = content;
 
-  function setupMarqueeFallback() {
-    var track = $("marqueeTrack");
-    if (!track) return;
+    wrapper.appendChild(track);
+    marquee.appendChild(wrapper);
+
+    // JS-driven marquee (more reliable than CSS)
+    var pos = 0;
+    var trackWidth = track.offsetWidth / 2;
     
-    setInterval(function() {
-      if (getComputedStyle(track).animationPlayState === 'paused') {
-        track.style.animationPlayState = 'running';
+    function animate() {
+      pos -= 0.5;
+      if (Math.abs(pos) >= trackWidth) {
+        pos = 0;
       }
-    }, 1000);
+      track.style.transform = 'translateX(' + pos + 'px)';
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
   }
 
   // ── Projects ────────────────────────────────────────────────
@@ -603,7 +610,6 @@
   renderAbout();
   renderSocial();
   setupMobileNav();
-  setupMarqueeFallback();
   setupCopyEmail();
 
   // Wait for DOM paint before setting up scroll-dependent features

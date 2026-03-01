@@ -614,15 +614,19 @@ button:focus-visible {
   position: relative;
 }
 
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
 .marquee-track {
-  display: inline-flex;
-  animation: marquee 50s linear infinite;
+  display: flex;
+  flex-wrap: nowrap;
   will-change: transform;
-  transform: translateZ(0);
 }
 
 .marquee-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 32px;
   padding: 0 32px;
