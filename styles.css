@@ -262,9 +262,9 @@ body.cursor-ready:hover .cursor-dot {
 
 .nav {
   height: var(--header-h);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   max-width: var(--max-w);
   margin-inline: auto;
 }
@@ -278,6 +278,7 @@ body.cursor-ready:hover .cursor-dot {
   font-size: 20px;
   letter-spacing: -0.03em;
   z-index: 102;
+  justify-self: start;
 }
 
 .nav-logo-dot {
@@ -298,6 +299,7 @@ body.cursor-ready:hover .cursor-dot {
   background: rgba(250, 250, 248, 0.72);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  justify-self: center;
 }
 
 .nav-center a {
@@ -323,6 +325,7 @@ body.cursor-ready:hover .cursor-dot {
   color: #fff;
   transition: transform 0.3s var(--ease), background 0.2s;
   z-index: 102;
+  justify-self: end;
 }
 
 .nav-cta:hover {
