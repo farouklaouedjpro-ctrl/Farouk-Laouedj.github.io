@@ -174,9 +174,12 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container footer-inner">
-        <p class="footer-copy">
-          &copy; <span id="footerYear"></span> <span id="footerName"></span>
-        </p>
+        <div>
+          <p class="footer-copy">
+            &copy; <span id="footerYear"></span> <span id="footerName"></span>
+          </p>
+          <p class="footer-cookies">Ce site utilise des cookies analytiques</p>
+        </div>
         <a class="footer-top" href="#top" data-nav data-magnetic>
           <span>Retour en haut</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -185,6 +188,15 @@
         </a>
       </div>
     </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QH3E3PG1SG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QH3E3PG1SG');
+    </script>
 
     <script src="./data.js"></script>
     <script src="./script.js"></script>
