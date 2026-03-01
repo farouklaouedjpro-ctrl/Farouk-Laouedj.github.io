@@ -9,7 +9,7 @@ window.PORTFOLIO_DATA = {
     lead:
       "Expert en devenir des SI, je bâtis des solutions numériques où l'IA et l'automatisation rencontrent la stratégie métier. J’aime transformer des problématiques complexes en processus simples, agiles et maîtrisés.",
     location: "Île-de-France, FR",
-    specialty: "IA & Automatisation des Processus",
+    specialty: "SI, IA & Automatisation des Processus",
     availability: "Ouvert aux opportunités",
     oneLiner: "Objectif: Transformer vos processus métiers grâce à l’IA et l'automatisation pour délivrer une valeur mesurable.",
     email: "farouklaouedj.pro@gmail.com",
